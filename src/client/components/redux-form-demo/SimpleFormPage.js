@@ -3,10 +3,12 @@ import SimpleForm from './SimpleForm';
 import { SubmissionError } from 'redux-form'
 
 export default class SimpleFormPage extends React.Component{
-  
+  constructor(props){
+    super(props);
+  }
+
   submit({ location }, dispatch) {
     console.log('submit');
-
     return new Promise((resolve, reject) => {
       console.log('test-1');
       resolve(10);

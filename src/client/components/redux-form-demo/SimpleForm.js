@@ -3,9 +3,7 @@ import { Field, reduxForm, SubmissionError } from 'redux-form'
 import cx from 'classnames';
 import { Button, Alert } from 'react-bootstrap';
 
-
 class SimpleForm extends Component {
-
   locationInput({ input, meta: { touched, error } }) {
     const hasError = touched && error !== undefined;
     return (
@@ -44,7 +42,6 @@ const validate = values => {
   } 
   return errors
 }
-
 
 export default reduxForm({
   form: 'simple',
