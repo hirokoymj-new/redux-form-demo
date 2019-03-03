@@ -1,6 +1,6 @@
 import React from 'react';
 import SimpleForm from './SimpleForm';
-import { SubmissionError } from 'redux-form'
+import { SubmissionError } from 'redux-form';
 
 export default class SimpleFormPage extends React.Component{
   constructor(props){

@@ -16,7 +16,17 @@ const Header = (props) => {
           <NavItem eventKey={2} href="/demo">
           validation
           </NavItem>
-          </Nav>
+        </Nav>
+        <Nav>
+          <NavItem eventKey={3} href="/multi">
+          Fields demo
+          </NavItem>
+        </Nav>
+        <Nav>
+          <NavItem eventKey={3} href="/example3">
+          Using withProp
+          </NavItem>
+        </Nav>        
       </Navbar.Collapse>
     </Navbar>
   )
