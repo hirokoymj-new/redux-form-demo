@@ -31,6 +31,74 @@ return (
   > It's one of the props in redux-form and changes the value of the field in the Redux store.
 
 
+#### (Redux-form) Multiple input fields to one redux form value
+
+**One Redux form field**
+```js
+<form onSubmit={handleSubmit}>
+  <Field
+    name="dob"
+    label="Date of Birth"
+    component={BdayPicker}
+  />
+</form>
+```
+
+**Rendering three selectbox**
+
+```js
+<Col xs={4}>
+  <FormControl
+    componentClass="select"
+    name="month"
+    value={this.state.month}
+    onChange={this.handleChange}
+  >
+    <option value="">month</option>
+    {
+      monthOptions.map((month, index) => <option key={month} value={index}>{month}</option>)
+    }
+  </FormControl>          
+</Col>
+<Col xs={4}>
+  <FormControl
+    componentClass="select"
+    name="day"
+    value={this.state.day}
+    onChange={this.handleChange}
+  >
+    <option value="">day</option>
+    {
+      dayOptions.map(day => <option key={day} value={day}>{day}</option>)
+    }
+  </FormControl>          
+</Col>
+<Col xs={4}>
+  <FormControl
+    componentClass="select"
+    name="year"
+    value={this.state.year}
+    onChange={this.handleChange}
+  >
+    <option value="">year</option>
+    {yearOptions.map(year => <option key={year} value={year}>{year}</option>)}
+  </FormControl>          
+</Col>                
+```
+
+**Merging three values to one for `dob` field**
+```js
+if (day === "" || month === "" || year === "") {
+  const dateObject = {
+    year,
+    month,
+    day
+  };
+  //console.log(this.getDate(dateObject))
+  this.props.input.onBlur(this.getDate(dateObject));
+  this.props.input.onChange(this.getDate(dateObject));
+}
+```
 
 
 ### Week3 of March
@@ -40,5 +108,4 @@ return (
 - Mutation
 - Promise.all
 - Redux form creating hidden fields( address )
-- 
 
