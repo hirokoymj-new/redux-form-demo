@@ -32,6 +32,11 @@ const Header = (props) => {
             <MenuItem eventKey={3.1} href="/example7">Layout</MenuItem>
           </NavDropdown>          
         </Nav>
+        <Nav>
+          <NavDropdown eventKey={4} title="Apollo client - graphql" >
+            <MenuItem eventKey={4.1} href="/example9">Multiple queries</MenuItem>
+          </NavDropdown>          
+        </Nav>        
       </Navbar.Collapse>
     </Navbar>
   )

@@ -11,6 +11,8 @@ import BdayFormPage from '../components/example5/BdayFormPage';
 import CheckboxDemoPage from '../components/example6/CheckboxDemoPage';
 import Example7Page from '../components/example7/Example7Page';
 import { TestPage } from '../components/example8/TestPage';
+import { ContactFormPage } from '../components/example9/ContactFormPage';
+
 
 
 export const history = createHistory();
@@ -29,6 +31,7 @@ const AppRouter = () => (
           <Route path="/example6" component={CheckboxDemoPage} />
           <Route path="/example7" component={Example7Page} />
           <Route path="/example8" component={TestPage} />
+          <Route path="/example9" component={ContactFormPage} />
         </Switch>
       </div>
     </Router>
