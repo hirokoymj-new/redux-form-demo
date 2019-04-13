@@ -1,43 +1,28 @@
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 
-
-const fragments = {
-  author: gql`
-    fragment AuthorStuff on Author {
-      id
-      name
-    }
-  `
-};
+import { AuthorFragments } from './AuthorFragments'
 
 
-const BOOKS = gql`
+export const BOOKS = gql`
   query BooksQuery{
     books{
       id
       name
       genre
+      author{
+        ...AuthorInfo
+      }
     }
-    author{
-      ...AuthorStuff
-    }
-  }
-  ${fragments.author}
+  }  
+  ${AuthorFragments.authorInfo}
 `;
 
 export const withBooks = graphql(BOOKS, {
-    props: ({ data }) => {
-      console.log(data);
-
-      return {
-        // bookInfo: {
-        //   loading: data.loading,
-        //   data: data ? data.books : []
-        // }
+    props: ({ data }) => ({
         booksLoading: data.loading,
-        books: data ? data.books : []
-      };
+        books: data ? data.books : {}
+      })
     }
-  }
 );
+

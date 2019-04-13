@@ -12,6 +12,11 @@ import CheckboxDemoPage from '../components/example6/CheckboxDemoPage';
 import Example7Page from '../components/example7/Example7Page';
 import { TestPage } from '../components/example8/TestPage';
 import { ContactFormPage } from '../components/example9/ContactFormPage';
+import { DayPickerComponent } from '../components/example10/DayPickerComponent';
+import { MyDatePickerForm } from '../components/example10/MyDatePickerForm';
+import { AddBookMutationForm } from '../components/example11/AddBookForm';
+import { EditBookPage } from '../components/example11/EditBookPage';
+import { AddBookForm } from '../components/example12/AddBookForm';
 
 
 
@@ -32,12 +37,16 @@ const AppRouter = () => (
           <Route path="/example7" component={Example7Page} />
           <Route path="/example8" component={TestPage} />
           <Route path="/example9" component={ContactFormPage} />
+          <Route path="/example10" component={DayPickerComponent} />
+          <Route path="/example11" component={AddBookMutationForm} />
+          <Route path="/:id" component={EditBookPage} />
+          <Route path="/example12" component={AddBookForm} />
+          <Route path="/test" component={MyDatePickerForm} />
         </Switch>
       </div>
     </Router>
 );
 export default AppRouter;
-
 
 
 

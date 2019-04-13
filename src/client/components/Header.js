@@ -13,7 +13,7 @@ const Header = (props) => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <NavDropdown eventKey={1} title="Redux-Form" >
+          <NavDropdown eventKey={1} title="Redux-Form" id="redux-form-nav">
             <MenuItem eventKey={1.1} href="/example1">HanldeSubmit/SubmissionError</MenuItem>
             <MenuItem eventKey={1.2} href="/example2">Fields</MenuItem>
             <MenuItem eventKey={1.3} href="/example3">Using withProp</MenuItem>
@@ -23,18 +23,21 @@ const Header = (props) => {
           </NavDropdown>          
         </Nav>        
         <Nav>
-          <NavDropdown eventKey={2} title="Recompose" >
+          <NavDropdown eventKey={2} title="Recompose" id="recompose-nav">
             <MenuItem eventKey={2.1} href="/example8">withStateHandlers</MenuItem>
           </NavDropdown>          
         </Nav>
         <Nav>
-          <NavDropdown eventKey={3} title="Responsive Design" >
-            <MenuItem eventKey={3.1} href="/example7">Layout</MenuItem>
+          <NavDropdown eventKey={3} title="React Components" id="react-component-nav">
+            <MenuItem eventKey={3.1} href="/example10">React-day-picker</MenuItem>
+            <MenuItem eventKey={3.2} href="/example7">Responsive Layout</MenuItem>
           </NavDropdown>          
         </Nav>
         <Nav>
-          <NavDropdown eventKey={4} title="Apollo client - graphql" >
-            <MenuItem eventKey={4.1} href="/example9">Multiple queries</MenuItem>
+          <NavDropdown eventKey={4} title="GraphQL - Apollo Client" id="apollo-client-nav">
+            <MenuItem eventKey={4.1} href="/example9">Two Queries</MenuItem>
+            <MenuItem eventKey={4.1} href="/example11">Mutation</MenuItem>
+            <MenuItem eventKey={4.2} href="/example12">Local Storage Demo</MenuItem>
           </NavDropdown>          
         </Nav>        
       </Navbar.Collapse>

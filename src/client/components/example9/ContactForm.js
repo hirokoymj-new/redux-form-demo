@@ -1,96 +1,28 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validateContactForm from './validateContactForm';
-import withSubmit from './withSubmit';
-import { withBookList }  from './withBookList';
-import { withAuthorList } from './withAuthorList';
-import { compose, withHandlers, withProps } from 'recompose';
-import cx from 'classnames';
-import { Link, withRouter } from 'react-router-dom';
+//import withSubmit from './withSubmit';
+import { withBooks } from '../../queries/withBooks';
+import { withAuthors } from '../../queries/withAuthors';
 
-import ContinueButton from './ContinueButton';
+import { compose } from 'recompose';
 
-const inputTextField = ({
-  input,
-  label,
-  type,
-  meta: { touched, error, warning }
-}) => {
-  //console.log("input:", input.value)
-  return (
-    <div className={cx('form-group', {'has-error': touched && error})}>
-      <label className="control-label">{label}</label>
-      <div>
-        <input {...input} placeholder={label} type={type} className="form-control" />
-        {touched &&
-          ((error && <span className="text-danger">{error}</span>) ||
-            (warning && <span>{warning}</span>))}
-      </div>
-    </div>
-  )
-};
-
-
-const bookDropdownField = (field) => {
-  return (
-    <div className="form-group">
-      <label>{field.label}</label>
-      <select {...field.input} className="form-control">
-        <option value="">Select book</option>
-        {field.options.map(book => 
-          <option key={book.id} value={book.id}>{book.name}</option>        
-          )
-        }
-      </select>
-      {field.meta.touched && field.meta.error &&
-      <span className="error">{field.meta.error}</span>}
-  </div>
-  )
-}
-
-const authorDropdownField = (field) => {
-  //console.log("field", field);
-  return (
-    <div className="form-group">
-      <label>{field.label}</label>
-      <select {...field.input} className="form-control">
-        <option value="">Select author</option>
-        {field.options.map(author => 
-          <option key={author.id} value={author.id}>{author.name}</option>        
-          )
-        }
-      </select>
-      {field.meta.touched && field.meta.error &&
-      <span className="error">{field.meta.error}</span>}
-  </div>
-  )
-}
-
-// const ContinueButton = (props) =>{
-//   return (
-//     <button type="button" onClick={props.onRouteChange}>Continue</button>
-//   )
-// }
-
-// const enhanceContineButton = withHandlers({
-//   onRouteChange: (props) =>{
-//     this.props.history.push('/review');
-//   }
-// })
-
+import { authorDropdownField } from './authorDropdownField';
+import { bookDropdownField } from './bookDropdownField';
+import { firstNameTextField } from './firstNameTextField';
 
 
 
 let ContactForm = props => {
   console.log("ContactForm");
   console.log(props);
-  const { handleSubmit, pristine, reset, mySubmit, bookInfo, authorInfo, booksLoading, authorsLoading, authors, books  } = props;
+  const { handleSubmit, pristine, reset, booksLoading, authorsLoading, authors, books  } = props;
   if(booksLoading || authorsLoading ) return <div>....loading</div>
   return (
-    <form onSubmit={handleSubmit(mySubmit)}>
+    <form>
       <Field
         name="firstName"
-        component={inputTextField}
+        component={firstNameTextField}
         type="text"
         placeholder="First Name"
         label="First Name"
@@ -99,18 +31,17 @@ let ContactForm = props => {
         name="bookId"
         component={bookDropdownField}
         label="My Book List"
-        options={books}
+        books={books}
       />
       <Field 
         name="authorId"
         component={authorDropdownField}
         label="Author List"
-        options={authors}
+        authors={authors}
       /> 
       <div>
         <button type="submit">Submit</button>
         <button type="button" onClick={reset}>Clear Values</button>
-        <ContinueButton history={history} path={"/result"} />
       </div>
     </form>
   )
@@ -123,9 +54,9 @@ export default compose(
     initialValues: { firstName: "Hiroko" },
     destroyOnUnmount: false
   }),
-  withBookList,
-  withAuthorList,
-  withSubmit
+  withBooks,
+  withAuthors,
+  //withSubmit
 )(ContactForm);
 
  

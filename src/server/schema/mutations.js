@@ -48,7 +48,7 @@ const mutation = new GraphQLObjectType({
         return removedBook;
       }
     },
-    editBook: {
+    updateBook: {
       type: BookType,
       args: {
         id: {type: new GraphQLNonNull(GraphQLID)},
@@ -77,7 +77,6 @@ const mutation = new GraphQLObjectType({
           update,
           { new: true }
         ).catch(err => new Error(err));                       
-
       }
     },
     addAuthor:{

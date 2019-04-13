@@ -3,8 +3,9 @@
 [03/23/2019]
 
 **Example 1**
-- Passes **state object** properties and **immutable updater functions**.
+>Passes **state object** properties and **immutable updater functions**.
 
+>Every state updater function accepts state, props and payload and must return a new state or undefined. The new state is shallowly merged with the previous state. Returning undefined does not cause a component rerender.
 ```js
   const Counter = withStateHandlers(
     ({ initialCounter = 0 }) => ({
@@ -55,10 +56,10 @@ export const TestPage = compose(
 ```
 
 
-**Example 2**
+**Example 3**
 - state object: `counter`
 - updater function: `incrementOn`
-- 
+  
 ```js
 const withCount = withStateHandlers(
   { 
