@@ -45,21 +45,8 @@ class AddBook extends Component {
 //    console.log(name, genre, authorId);
     console.log(this.props);
     // === Example 1
-    // const { mutate } = this.props;
-    // mutate({
-    //   variables: {
-    //     name,
-    //     genre,
-    //     authorId
-    //   }
-    // }).then(({ data })=>{
-    //   console.log('done mutation.');
-    //   console.log(data);
-    // });
-
-    // === Example 2
-    const { createBook } = this.props;
-    createBook({
+    const { mutate } = this.props;
+    mutate({
       variables: {
         name,
         genre,
@@ -68,7 +55,20 @@ class AddBook extends Component {
     }).then(({ data })=>{
       console.log('done mutation.');
       console.log(data);
-    })    
+    });
+
+    // === Example 2
+    // const { createBook } = this.props;
+    // createBook({
+    //   variables: {
+    //     name,
+    //     genre,
+    //     authorId
+    //   }
+    // }).then(({ data })=>{
+    //   console.log('done mutation.');
+    //   console.log(data);
+    // })    
   }
 
   render() {

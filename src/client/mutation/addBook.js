@@ -13,7 +13,7 @@ const ADD_BOOK = gql`
 
 
 export const addBookMutation = graphql(ADD_BOOK,{
-  name: "createBook",
+  //name: "createBook",
   options: {
     refetchQueries: [{query: BOOKS}]
   }  

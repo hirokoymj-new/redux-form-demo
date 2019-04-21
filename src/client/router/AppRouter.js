@@ -17,6 +17,7 @@ import { MyDatePickerForm } from '../components/example10/MyDatePickerForm';
 import { AddBookMutationForm } from '../components/example11/AddBookForm';
 import { EditBookPage } from '../components/example11/EditBookPage';
 import { AddBookForm } from '../components/example12/AddBookForm';
+import { AddFormController } from '../components/example11/AddForm';
 
 
 
@@ -39,9 +40,12 @@ const AppRouter = () => (
           <Route path="/example9" component={ContactFormPage} />
           <Route path="/example10" component={DayPickerComponent} />
           <Route path="/example11" component={AddBookMutationForm} />
+          <Route path="/addForm" component={AddFormController} />
+
           <Route path="/:id" component={EditBookPage} />
           <Route path="/example12" component={AddBookForm} />
           <Route path="/test" component={MyDatePickerForm} />
+
         </Switch>
       </div>
     </Router>
